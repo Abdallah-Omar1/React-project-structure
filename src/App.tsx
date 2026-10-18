@@ -1,27 +1,22 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
-import AppProvider from "./components/providers/AppProvider";
-import Home from "./pages/Home";
-import About from "./pages/About";
+
+import { Navigate, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <AppProvider>
-        <div className="app-layout">
-          <Navbar />
+    <div className="min-h-screen bg-[#faf9f6] text-[#24251f]">
+      <Navbar />
 
-          <main className="main-content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-            </Routes>
-          </main>
-
-          <Footer />
-        </div>
-      </AppProvider>
-    </BrowserRouter>
+      <main className="mx-auto max-w-[1440px] px-4 pb-12 sm:px-6 lg:px-8">
+        <Routes>
+          <Route path="/" element={<Navigate to="/products" replace />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+          <Route path="*" element={<Navigate to="/products" replace />} />
+        </Routes>
+      </main>
+    </div>
   );
 }
