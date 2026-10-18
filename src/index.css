@@ -135,3 +135,262 @@ footer {
     transform: translateY(0) scale(1);
   }
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  font-family: "Inter", sans-serif;
+  color: #182230;
+  background: #f7f8fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+}
+
+.home-page {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 48px 24px 72px;
+}
+
+.hero {
+  padding: 56px 40px;
+  background: linear-gradient(135deg, #fff 0%, #eef2ff 100%);
+  border: 1px solid #e4e7f0;
+  border-radius: 24px;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: #6254d9;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.hero h1 {
+  margin: 16px 0;
+  font-size: clamp(32px, 5vw, 48px);
+  letter-spacing: -1.5px;
+}
+
+.hero > p,
+.section-heading > p {
+  color: #667085;
+  line-height: 1.8;
+}
+
+.hero > p {
+  max-width: 600px;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.reusable-button {
+  padding: 11px 18px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.reusable-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  color: #fff;
+  background: #6254d9;
+}
+
+.button-primary:hover:not(:disabled) {
+  background: #5042c4;
+}
+
+.button-secondary {
+  color: #344054;
+  background: #fff;
+  border-color: #d0d5dd;
+}
+
+.button-secondary:hover:not(:disabled) {
+  background: #f2f4f7;
+}
+
+.button-danger {
+  color: #fff;
+  background: #d92d20;
+}
+
+.reusable-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.content-section {
+  margin-top: 56px;
+}
+
+.section-heading {
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  margin: 10px 0;
+  font-size: 27px;
+  letter-spacing: -0.6px;
+}
+
+.section-heading > p {
+  margin-bottom: 0;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.reusable-card {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgb(16 24 40 / 4%);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.reusable-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgb(16 24 40 / 8%);
+}
+
+.card-image {
+  display: block;
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 22px;
+}
+
+.card-body h3 {
+  margin: 0 0 10px;
+  font-size: 19px;
+}
+
+.card-body > p {
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.card-children {
+  margin-top: 20px;
+}
+
+.card-note {
+  margin-bottom: 0;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid #e4e7ec;
+  border-radius: 14px;
+}
+
+.reusable-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.reusable-table th,
+.reusable-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #eaecf0;
+  white-space: nowrap;
+}
+
+.reusable-table th {
+  color: #475467;
+  background: #f9fafb;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.reusable-table td {
+  color: #344054;
+  font-size: 14px;
+}
+
+.reusable-table.striped tbody tr:nth-child(even) {
+  background: #f7f8fc;
+}
+
+.reusable-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.empty-table {
+  text-align: center;
+  color: #667085;
+}
+
+@media (max-width: 850px) {
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .home-page {
+    padding: 24px 16px 48px;
+  }
+
+  .hero {
+    padding: 32px 22px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .button-group {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .button-group .reusable-button {
+    width: 100%;
+  }
+
+  .content-section {
+    margin-top: 40px;
+  }
+}

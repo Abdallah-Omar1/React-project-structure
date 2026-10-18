@@ -1,20 +1,27 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
+type ButtonVariant = "primary" | "secondary" | "danger";
+
+interface ButtonProps {
+  text: string;
+  onClick: () => void;
+  variant?: ButtonVariant;
+  disabled?: boolean;
 }
 
 export default function Button({
-  children,
-  className = "",
-  ...props
+  text,
+  onClick,
+  variant = "primary",
+  disabled = false,
 }: ButtonProps) {
   return (
     <button
-      className={`rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 ${className}`}
-      {...props}
+      type="button"
+      className={`reusable-button button-${variant}`}
+      onClick={onClick}
+      disabled={disabled}
     >
-      {children}
+      {text}
     </button>
   );
 }
